@@ -1,21 +1,19 @@
 import os 
 import json
 import google.generativeai as genai
-from dotenv import load_dotenv
 
 # get the working directory
 
 working_directory = os.path.dirname(os.path.abspath(__file__))
 
-load_dotenv() 
+# Retrieve the API key from environment variables
+GOOGLE_API_KEY = os.getenv("GENAI_API_KEY")
 
-# loading the api key
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-
-print(GOOGLE_API_KEY)
-
-# configuring google.generativeai with API key
-genai.configure(api_key=GOOGLE_API_KEY)
+# Configure the genai client with the API key
+if GOOGLE_API_KEY:
+    genai.configure(api_key=GOOGLE_API_KEY)
+else:
+    raise ValueError("API key not found in environment variables.")
 
 # function to load gemini-pro model for chatbot
 def load_gemini_pro_model() :
