@@ -1,0 +1,29 @@
+name: Run genai Script
+
+on: [push]
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    # Set environment variables for this job
+    env:
+      GENAI_API_KEY: ${{ secrets.API_KEY }}  # Access the API key stored in GitHub Secrets
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script
+        run: |
+          python your_script.py
