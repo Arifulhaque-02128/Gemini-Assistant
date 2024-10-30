@@ -8,7 +8,7 @@ jobs:
 
     # Set environment variables for this job
     env:
-      GENAI_API_KEY: ${{ secrets.API_KEY }}  # Access the API key stored in GitHub Secrets
+      GENAI_API_KEY: ${{ secrets.GOOGLE_API_KEY }}  # Access the API key stored in GitHub Secrets
 
     steps:
       - name: Checkout code
