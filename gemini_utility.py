@@ -7,7 +7,7 @@ import google.generativeai as genai
 working_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Retrieve the API key from environment variables
-GOOGLE_API_KEY = os.getenv("GENAI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Configure the genai client with the API key
 if GOOGLE_API_KEY:
